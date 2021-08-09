@@ -1,0 +1,176 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+
+:root {
+    --primary-color:#333;
+    --secondary-color:rgba(0,0,0,.125);
+    --brand-color:#00aeff;
+    --background:#fff;
+    --alt-background: #f3f3f3;
+}
+
+[data-theme="dark"] {
+    --primary-color:#fff;
+    --secondary-color:rgb(87,87,87);
+    --brand-color:#00aeff;
+    --background:#000;
+    --alt-background: #222;
+}
+
+body {
+    background-color:var(--background);
+    color:var(--primary-color);
+}
+
+a {
+    color: var(--brand-color);
+    text-decoration: none;
+    &:hover, &:active, &:focus {
+        color: var(--primary-color);
+    }
+}
+
+header {
+    position: fixed;
+    z-index:10;
+    top:0;
+    width:100vw;
+    padding:1rem 0;
+    background-color:var(--alt-background);
+    .brand {
+        max-height:80px;
+        float:left;
+        margin-right:4rem;
+    }
+    nav {
+        font-size:1.5rem;
+        ul {
+            margin:0;
+            padding:0;
+            li {
+                list-style-type: none;
+                display: inline-block;
+                line-height:70px;
+                padding-right:3rem;
+            }
+        }
+    }
+    .toggle-wrap {
+        #toggle-icon {
+            .bi {
+                font-size:2rem;
+                margin-right:.5rem;
+            }
+        }
+        .theme-switch {
+            display: inline-block;
+            height:2rem;
+            position: relative;
+            width:4rem;
+            top:.2rem;
+            & input {
+                display:none;
+                &:checked + .toggle {
+                    background:var(--brand-color);
+                }
+                &:checked + .toggle::before {
+                    transform: translateX(2.1rem);
+                }
+            }
+            .toggle {
+                background-color:#ccc;
+                cursor:pointer;
+                bottom:0;
+                left:0;
+                right:0;
+                top:0;
+                position: absolute;
+                transition: .4s;
+                &::before {
+                    background:#fff;
+                    bottom:.4rem;
+                    content:"";
+                    left:.4rem;
+                    position: absolute;
+                    transition: .4s;
+                    width:1.25rem;
+                    height:1.25rem;
+                }
+                &.round {
+                    border-radius:1rem;
+                    &::before {
+                        border-radius:1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+main {
+    margin-top:120px;
+    padding-top:3rem;
+}
+
+.hero {
+    padding:4rem 0;
+    .card {
+        background-color:var(--alt-background);
+        border-color:var(--secondary-color);
+        .card-body {
+            padding:1.5rem;
+            form {
+                .form-control {
+                    border-color: var(--secondary-color);
+                    border-radius:0;
+                }
+                .form-control, label {
+                    margin-bottom:2rem;
+                }
+                .checkbox-lg {
+                    input[type="checkbox"] {
+                        height:2rem;
+                        width:2rem;
+                        border-color: var(--secondary-color);
+                    }
+                    span {
+                        position: relative;
+                        top:-.6rem;
+                        left:.5rem;
+                    }
+                }
+                .btn {
+                    border:none;
+                    border-radius: 0;
+                    &.btn-primary {
+                        background-color:var(--brand-color);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.brands {
+    margin:4rem 0;
+    padding:4rem 2rem;
+    border-top:1px solid var(--secondary-color);
+    border-bottom:1px solid var(--secondary-color);
+    img {
+        width:80%;
+        height:100px;
+        object-fit:scale-down;
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+footer {
+    padding:5rem 0;
+    a {
+        margin:1rem;
+    }
+}
+
+.img-light {
+    filter: brightness(0) invert(1);
+}
